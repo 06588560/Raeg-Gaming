@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popUp</title>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="stylesheet" href="popup.css">
+    <?!= include('JavaScript'); ?>
+</head>
+<body>
+    <input type="checkbox" name="" id="toggle">
+        <label for="toggle" class="show-btn">Join</label>
+
+        <div class="wrapper">
+            <label for="toggle" class="cancel-btn"><i class="fa fa-times" aria-hidden="true"></i></label>
+
+        <div class="icon"><i class="far fa-envelope" aria-hidden="true"></i></div>
+        <div class="content">
+            <header>Join The Tournament</header>
+            <p>please Fill The Details Below..</p>
+
+        </div>
+        <form action="#" id="myForm" onsubmit="handleFormSubmit(this)">
+
+            
+           <div class="field">
+                 <input type="text" name="Name" placeholder="User Name" class="Name" id="Username" required>
+           </div>
+
+            <div class="field form-group">
+
+                <input type="email" name="E-mail" placeholder="E-Mail" class="Your Email" id="email" required>
+                
+            </div>
+            <div class="field">
+
+                <input type="text"
+                class="form-control" name="Gaming_Id" placeholder="Gaming Id" required>
+
+            </div>
+
+            <div class="field btn">
+                <input type="submit" value="Join">
+            </div>
+        </form>
+
+        <div class="text">We Do Not Share Your Iformation With Anyone.</div>
+    </div>
+
+
+
+    
+    
+
+
+        <script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbw4AIJ0Bx51-2wRgBBN1Y6thMfg_r2r2VnZeEkxKl6kHTIE6ujbiae8CM2ubl5Cq0zjrQ/exec'
+			const form = document.forms['Raeg Data']
+		  
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thank you! your form is submitted successfully." ))
+				.then(() => {  window.location.reload(); })
+				.catch(error => console.error('Error!', error.message))
+			})
+		  </script>
+
+
+           <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+           <script>
+            function sendEmail(){
+            Email.send({
+             Host : "smtp.elasticemail.com",
+              Username : "raegesports25@gmail.com",
+              Password : "8F0A24CFEDF1F860A684E4F1583CB4FC475C",
+              To : 'raegesports25@gmail.com' ,
+              From : document.getElementById('email').value,
+              Subject : "For Contacting Us",
+              Body : "Name :"+ document.getelementById("name").value
+                + "E-Mail :"+ document.getelementById("name").value
+                + "Gaming Id :"+ document.getelementById("name").value
+
+}).then( message => alert("We Will Contact With You Soon.."));
+            }
+           </script>
+
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</body>
+</html>
